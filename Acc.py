@@ -7,5 +7,3 @@ class Acc(object):
     def toString(self):
         return '{}\n Username:{}\n Password:{}'.format(self.acc,self.username,self.password)
 
-p1 = Acc('test','test','test')
-print p1.toString()

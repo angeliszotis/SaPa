@@ -1,21 +1,36 @@
+from PyQt5.QtWidgets import QMainWindow , QApplication , QWidget, QLineEdit , QPushButton
 import sys
-from PyQt4 import QtGui , QPlainTextEdit
 
-class Window(QtGui.QMainWindow):
+class Window(QMainWindow):
     def __init__(self):
-        super(Window, self).__init__()
-        self.setGeometry(50,50,600,400)
-        self.setWindowTitle("SaPa")
-        self.setWindowIcon(QtGui.QIcon('')) #edo vale icon
-        self.b = QPlainTextEdit(self)
+        super().__init__()
+        
+        self.title = "SaPa"
+        self.top = 100
+        self.left = 100
+        self.width = 400
+        self.height = 400
+
+        self.InitWindow()
+
+    def InitWindow(self):
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left,self.top,self.width,self.height)
+
+        # Create textbox
+        self.textbox = QLineEdit(self)
+        self.textbox.move(20,20)
+        self.textbox.resize(200,40)
+
+        # Create a Button
+        self.button = QPushButton('LogIn',self)
+        self.button.move(20,80)
+
+        # Connect button to function click
+        #self.button.clicked.connect(self.onclick)
+
         self.show()
 
-    def popmessage(self):
-        choise = QtGui.QMessageBox.question(self,)#dose minima edo
-
-    def run():
-        app = QtGui.QApplication(sys.argv)
-        GUI = Window()
-        sys.exit(app.exec_())
-
-run()
+App = QApplication(sys.argv)
+window = Window()
+sys.exit(App.exec_())

@@ -2,63 +2,36 @@
 # *-* coding: iso-8859-1 *-*
 import Acc
 import fileinput
+import glob
+import os
 
 class IoSapa:
-    global filename
-    filename = 'test'
+    def __init__(self):
+        pass
+    
+    def writeF(self,filename):
+        with open('./data/{}.txt'.format(filename),'w') as fo:
+            account = Acc.Acc( filename,raw_input('Όνομα Λογαριασμού:'),raw_input('Κωδικός Λογαριασμού:'))
 
-    def __init__(self,filename):
-        self.filename = filename
-
-    def writeF(self):
-        fo = open('{}.txt'.format(filename),"ab")
-        
-       # whereuse =
-       #username =
-        #password = 
-        account = Acc.Acc( raw_input('Πάροχος Λογισμού:'),raw_input('Όνομα Λογαριασμού:'),raw_input('Κωδικός Λογαριασμού:'))
-
-        fo.write(account.toString())
-        fo.close()
+            fo.write(account.toString())
 
     def readF(self):
-        fo = open('{}.txt'.format(filename),"r+")
-        for i in fo:
-            print(i)
-        fo.close()
+        x=0
+        filename = glob.glob("data/*.txt")
+        for i in filename:
+            with open(str(filename[x]),"r+") as fo:
+                x+=1
+                #print '---------------------'
+                for line in fo:
+                    print(line)
 
-    def positionF(self):
-        fo = open('{}.txt'.format(filename),"r+")
-        x = raw_input("Dose onoma")
-        for i in fo:
+    def removeF(self):
 
-            print(i)
+        path = raw_input("Δώσε Ονομα Παρωχου για διαγραφη:")
+        print path
+        if os.path.isfile('./data/{}.txt'.format(path)):
+            os.remove('./data/{}.txt'.format(path))
+        else:
+            print("Δεν υπαρχει ο παροχος");
 
-        position = fo.tell()
-        print "perioxi:",position
-        #reposition 
-        position = fo.seek(0.0)
-        fo.close()
 
-    def changeF(self):
-        #read input file
-        fin = open( '{}.txt'.format(filename),"rt")
-        #read file contents to string
-        data = fin.read()
-        #replace all occurrences of the required string
-        data = data.replace(raw_input('leksi find:'), raw_input('leksi replace:'))
-        #close the input file
-        fin.close()
-        #open the input file in write mode
-        fin = open('{}.txt'.format(filename), "wt")
-        #overrite the input file with the resulting data
-        fin.write(data)
-        #close the file
-        fin.close()
-
-p1 = IoSapa("takis")
-x = raw_input("dose ti thes")
-if x == 'w' :
-    p1.writeF()
-else :
-    p1.changeF()
