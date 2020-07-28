@@ -1,10 +1,11 @@
-import Acc
-from iosapa import IoSapa
-from SingIn import SingIn
+from PyQt5.QtWidgets import *
+import sys
+import gui
+import guiMain
 
-p1 = SingIn("123")
-p2 = IoSapa()
-
-p2.writeF(raw_input("onoma"))
-p2.readF()
-p2.removeF()
+def main():
+    App = QApplication(sys.argv)
+    p1 = gui.Window() 
+    sys.exit(App.exec_())
+if __name__ == "__main__":
+    main()

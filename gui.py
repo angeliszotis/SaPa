@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow , QApplication , QWidget, QLineEdit , QPushButton ,QLabel,QFrame 
 from PyQt5 import QtCore
+from guiMain import *
 import sys
 from SingIn import SingIn
 class Window(QMainWindow):
@@ -43,11 +44,15 @@ class Window(QMainWindow):
 
     def singInClick(self):
         self.trysin+=1
+        p1=SingIn(self.textbox.text())
+        p2=Window1()
         if self.trysin >= 3:
+            print("exit")
             sys.exit("More than 3 Fail")
-        singin= SingIn(self.textbox.text())
-        self.textbox.setText("")
+        elif p1 :
+            print('hi')
+            p2.InitWindow()
+            #self.close()
+            self.textbox.setText("")
 
-App = QApplication(sys.argv)
-window = Window()
-sys.exit(App.exec_())
+

@@ -9,6 +9,6 @@ class SingIn():
         else:
             self.correctFrace()
     def wrongFrase(self):
-        return "Fail" 
+        return False 
     def correctFrace(self):
-        return "Correct Frace"
+        return True

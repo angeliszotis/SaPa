@@ -10,10 +10,9 @@ class IoSapa:
     def __init__(self):
         pass
     
-    def writeF(self,filename):
+    def writeF(self,filename,username,password):
         with open('./data/{}.txt'.format(filename),'w') as fo:
-            account = Acc.Acc( filename,input('Όνομα Λογαριασμού:'),input('Κωδικός Λογαριασμού:'))
-
+            account = Acc.Acc(filename,username,password)
             fo.write(account.toString())
 
     def readF(self):
@@ -30,9 +29,8 @@ class IoSapa:
                     y+=1
         return arrprint
 
-    def removeF(self):
+    def removeF(self,path):
 
-        path = raw_input("Δώσε Ονομα Παρωχου για διαγραφη:")
         print (path)
         if os.path.isfile('./data/{}.txt'.format(path)):
             os.remove('./data/{}.txt'.format(path))
