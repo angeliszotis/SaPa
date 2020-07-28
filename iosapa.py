@@ -4,6 +4,7 @@ import Acc
 import fileinput
 import glob
 import os
+from array import *
 
 class IoSapa:
     def __init__(self):
@@ -11,27 +12,32 @@ class IoSapa:
     
     def writeF(self,filename):
         with open('./data/{}.txt'.format(filename),'w') as fo:
-            account = Acc.Acc( filename,raw_input('Όνομα Λογαριασμού:'),raw_input('Κωδικός Λογαριασμού:'))
+            account = Acc.Acc( filename,input('Όνομα Λογαριασμού:'),input('Κωδικός Λογαριασμού:'))
 
             fo.write(account.toString())
 
     def readF(self):
         x=0
+        y=0
         filename = glob.glob("data/*.txt")
+        arrprint = []
         for i in filename:
             with open(str(filename[x]),"r+") as fo:
                 x+=1
-                #print '---------------------'
                 for line in fo:
-                    print(line)
+                    print (line) 
+                    arrprint.insert(x,[x,line])
+                    y+=1
+        return arrprint
 
     def removeF(self):
 
         path = raw_input("Δώσε Ονομα Παρωχου για διαγραφη:")
-        print path
+        print (path)
         if os.path.isfile('./data/{}.txt'.format(path)):
             os.remove('./data/{}.txt'.format(path))
         else:
             print("Δεν υπαρχει ο παροχος");
 
-
+p1 = IoSapa()
+p1.readF()

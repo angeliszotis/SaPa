@@ -5,5 +5,5 @@ class Acc(object):
         self.password=password
 
     def toString(self):
-        return '{}\n Username:{}\n Password:{}'.format(self.acc,self.username,self.password)
+        return '\n{}\n Username:{}\n Password:{}'.format(self.acc,self.username,self.password)
 
