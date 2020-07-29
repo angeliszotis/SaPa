@@ -5,7 +5,7 @@ from SingIn import SingIn
 from iosapa import IoSapa
 import glob
 import fileinput
-class Window1(QMainWindow):
+class Window1(QWidget):
     global trysin
     def __init__(self):
         super().__init__()
@@ -77,7 +77,7 @@ class Window1(QMainWindow):
         #label.setGeometry(5,5,450,500)
         #label.setAlignment(QtCore.Qt.AlignLeft)
 
-        self.show()
+        #self.show()
 
     def buttonClickC(self):
         iosapa=IoSapa()
@@ -92,6 +92,6 @@ class Window1(QMainWindow):
         #window = Window1()
         #window.InitWindow()
 
-App = QApplication(sys.argv)
+#App = QApplication(sys.argv)
 #window = Window1()
-sys.exit(App.exec_())
+#sys.exit(App.exec_())

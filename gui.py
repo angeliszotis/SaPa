@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow , QApplication , QWidget, QLineEdit , QPushButton ,QLabel,QFrame 
 from PyQt5 import QtCore
-from guiMain import *
 import sys
+from guiMain import *
 from SingIn import SingIn
 class Window(QMainWindow):
     global trysin
@@ -51,7 +51,7 @@ class Window(QMainWindow):
             sys.exit("More than 3 Fail")
         elif p1 :
             print('hi')
-            p2.InitWindow()
+            p2.show
             #self.close()
             self.textbox.setText("")
 
